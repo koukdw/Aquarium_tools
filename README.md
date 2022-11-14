@@ -11,6 +11,7 @@
 
 ### How to use
 > Dump the game romfs, then copy the Script folder and Config folder to the root directory
+> 
 > Create Output/Script and Output/Config folder structure
 
 ```> python binu8_dumper.py```
