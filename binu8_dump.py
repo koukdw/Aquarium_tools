@@ -53,8 +53,6 @@ def main():
 		entry_count = byte2int(src.read(4))
 		str_offset = (entry_count << 1) * 4 + 8
 		src.seek(str_offset)
-		print(hex(src.tell()))
-		print(dstname)
 		str_count = byte2int(src.read(4))
 
 		str_list = dumptxt(src, src.tell()+5, str_count-1)
