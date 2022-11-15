@@ -12,7 +12,7 @@
 ### How to use
 > Dump the game romfs, then copy the Script folder and Config folder to the root directory
 > 
-> Create Output/Script and Output/Config folder structure
+> Create a ./Output/ folder in the root directory and create Script and Config folder inside it
 
 ```> python binu8_dumper.py```
 > Extract the strings from Script folder binu8 files into .txt files
