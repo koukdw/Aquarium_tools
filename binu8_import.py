@@ -57,7 +57,7 @@ def main():
 		for rows in txt:
 			if rows[0] != '●':
 				continue
-			row = txt.readline().rstrip('\r\n')
+			row = txt.readline().rstrip('\r\n').replace('\\n', '\n').replace('\\r', '\r')
 
 			str = bytes(row, 'utf-8')
 			dst.write(struct.pack('L', len(str)+1))

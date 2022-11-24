@@ -39,7 +39,7 @@ def dumptxt(src, offset, count):
 	src.seek(offset)
 	str_list = []
 	for i in range(0, count):
-		str_list.append(dumpstr(src))
+		str_list.append(dumpstr(src).replace('\n', '\\n').replace('\r', '\\r'))
 	return str_list
 
 def main():
