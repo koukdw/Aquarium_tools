@@ -14,16 +14,16 @@
 > 
 > Create a ./Output/ folder in the root directory and create Script and Config folder inside it
 
-```> python binu8_dumper.py```
+```> python binu8_dump.py```
 > Extract the strings from Script folder binu8 files into .txt files
 
-```> python binu8_importer.py```
+```> python binu8_import.py```
 >Create a new binu8 files based on the modified txt files and put them in the ./Output/Script/ folder
 
-```> python datu8_dumper.py```
+```> python datu8_dump.py```
 > Extract the strings from Config folder datu8 files into .txt files
 
-```> python datu8_importer.py```
+```> python datu8_import.py```
 >Create a new datu8 files based on the modified txt files and put them in the ./Output/Config/ folder
 
 
