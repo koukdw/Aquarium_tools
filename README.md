@@ -1,4 +1,4 @@
-# NeXAS Switch script dumper/importer
+# NeXAS Switch string dumper/importer
 ### Modified from https://github.com/Yggdrasill-Moe/Niflheim/tree/master/NeXAS to support binu8 and datu8
 </br>
 
