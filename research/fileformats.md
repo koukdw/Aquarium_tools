@@ -28,20 +28,6 @@ struct NexasInstruction {
     int32 Operand;
 };
 
-// encoding = utf-8
-struct NexasStringSwitch {
-    int32 size; // Size is only present in the switch version
-    char str[]; // Null terminated
-};
-
-// Before aquarium PC 
-// encoding = shift-jis
-// After aquarium PC
-// encoding = utf-8
-struct NexasStringPC {
-    char str[]; // Null terminated
-};fvff
-
 struct NeXASBank {
     int32 id;                           // The id of the bank, used with the START instruction and also by some function for switching scripts/bank
     int32 argsIndex[8];                 // Index into bank_numeric_variables_names to get the name of the argument
