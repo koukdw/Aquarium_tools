@@ -194,18 +194,18 @@ Note: Color channel are mapped from 0 to 16
 ```
 0  -  red
 1  -  green
-3  -  blue
-4  -  x_scroll_position
-5  -  y_scroll_position
-6  -  x_scroll_percent
-7  -  y_scroll_percent
-8  -  scale
-9  -  file_name
-10 -  diff_file_name
-11 -  diff_x_position
-12 -  diff_y_position
-13 -  width
-14 -  height
+2  -  blue
+3  -  x_scroll_position
+4  -  y_scroll_position
+5  -  x_scroll_percent
+6  -  y_scroll_percent
+7  -  scale
+8  -  file_name
+9  -  diff_file_name
+10 -  diff_x_position
+11 -  diff_y_position
+12 -  width
+13 -  height
 ```
 ### event.dat
 ```
