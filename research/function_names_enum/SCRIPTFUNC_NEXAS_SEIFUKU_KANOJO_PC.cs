@@ -1,5 +1,5 @@
 // Be aware that it is hand made so there may be some error, it's still a work in progress.
-// It's tested on PC but the script on switch have pretty much the same id
+// It's tested on PC, probably needs a few edit to make it match on switch
 enum SCRIPTFUNC : __int32
 {
   SCRIPTFUNC_INITSYSTEM,
