@@ -174,7 +174,7 @@ Note: Color channel are mapped from 0 to 16
 ```
 ### stand.dat
 ```
-0  -  index
+0  -  char_index
 1  -  animation_name
 2  -  face_name
 3  -  x
