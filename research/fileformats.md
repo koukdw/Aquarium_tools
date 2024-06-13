@@ -183,7 +183,6 @@ Note: Color channel are mapped from 0 to 16
 6  -  pattern_no
 7  -  param1
 8  -  param2
-9  -  param3
 ```
 ### standpos.dat
 ```
