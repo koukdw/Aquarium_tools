@@ -22,8 +22,7 @@ I am still not understanding opcode 0x49, but i have a few idea. It will be easi
 |              |                  |                    | If there's a return value it will be in `R0` |
 | 0x8          | Load             | Register Number    | Load a variable value (`number`) into `registers[register_number]` |
 |              |                  |                    | The register will contain an `index` to a `variable array` combined with an `optional flag` that determine if the scope is `global` |
-|              |                  |                    | `int reg = registers[register_number]` |
-|              |                  |                    | `reg = GET_INT_VARIABLE(reg)` |
+|              |                  |                    | `registers[register_number] = GET_INT_VARIABLE(registers[register_number])` |
 | 0x9          | Add              | Type               | Addition/Concat operation: |
 |              |                  |                    | If type is 0 (`number`). `R0 = R0 + R1` |
 |              |                  |                    | If type is 1 (`string`). It is an Concat operation, in that case both `R0` and `R1` contains an index to a string array (Variable or stringTable). |
