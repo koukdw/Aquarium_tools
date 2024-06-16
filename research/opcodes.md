@@ -148,8 +148,8 @@ I am still not understanding opcode 0x49, but i have a few idea. It will be easi
 | 0x42         | Branch.false     | Index              | Branch to code[index] if `R0` is `false` (0) |
 | 0x43         | Branch.true      | Index              | Branch to code[index] if `R0` is `true` (1) |
 | 0x44         | To_Int           | Register Number    | Convert string register[register_num] to int and return the value to register[register_num] |
-| 0x47         | Param_min        | Value              | Mark the next parameter for bound check (MINIMUM) when the function is executed, the value in the operand will be the value to compare against |
-| 0x48         | Param_max        | Value              | Mark the next parameter for bound check (MAXIMUM) when the function is executed, the value in the operand will be the value to compare against |
+| 0x47         | Param_min        | None               | Mark the next parameter for bound check (MINIMUM) when the function is executed, the value in the `R0` will be the value to compare against |
+| 0x48         | Param_max        | None               | Mark the next parameter for bound check (MAXIMUM) when the function is executed, the value in the `R0` will be the value to compare against |
 | 0x49         | Op_49            | Value              | Not confirmed but i think it's a bool that allow to push 64 bit number as parameters to functions, More precisely i think if it is set to true there's a mechanism to send 2 dword value (low and high) and if it is set to false it will just send 1 dword and transform it into a 64 bit value. But all of this is just speculation i need actual example to figure out how it is used |
 
 
