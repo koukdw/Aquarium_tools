@@ -141,6 +141,31 @@ this file contains most configuration values but it's very big and change alot a
 2  -  loopPoint
 3  -  volume
 ```
+### button.dat
+```
+0  -  offset_x
+1  -  offset_y
+2  -  range_unsure   // used with sliders
+3  -  button_on_id;
+4  -  button_off_id;
+5  -  button_type
+6  -  tooltip_text
+```
+### buttonex.dat
+```
+0  -  unk
+1  -  unk1
+2  -  unk2
+3  -  unk3
+4  -  unk4
+5  -  offset_x
+6  -  offset_y
+7  -  range_unsure   // used with sliders
+8  -  button_on_id;
+9  -  button_off_id;
+10  -  button_type
+11  -  tooltip_text
+```
 ### char.dat
 Note: `fontColor` is an index
 ```
@@ -267,24 +292,23 @@ type 3 = "Video"
 1  -  chara_id
 ```
 ### systemvoicefilename.dat
-Note: I'm not sure how it works
 ```
 0  -  system_voice_filename
-1  -  unknown0
-2  -  unknown1
-3  -  unknown2
-4  -  unknown3
-5  -  unknown4
-6  -  unknown5
-7  -  unknown6
-8  -  unknown7
-9  -  unknown8
-10  -  unknown9
-11  -  unknown10
-12  -  unknown11
-13  -  unknown12
-14  -  unknown13
-15  -  unknown14
+1  -  system_voice_filename_variant
+2  -  system_voice_filename_variant2
+3  -  system_voice_filename_variant3
+4  -  system_voice_filename_variant4
+5  -  system_voice_filename_variant5
+6  -  system_voice_filename_variant6
+7  -  system_voice_filename_variant7
+8  -  system_voice_filename_variant8
+9  -  system_voice_filename_variant9
+10  -  system_voice_filename_variant10
+11  -  system_voice_filename_variant11
+12  -  system_voice_filename_variant12
+13  -  system_voice_filename_variant13
+14  -  system_voice_filename_variant14
+15  -  system_voice_filename_variant15
 ```
 ### watchflg.dat
 ```
