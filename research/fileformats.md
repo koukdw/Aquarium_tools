@@ -37,7 +37,7 @@ struct NeXASBank {
 struct NeXASFunction {
     int32 id;           // Id used by the Call instruction. You need to add the sign bit if you want to search for that function in the bytecode.
     int32 init_code_count;
-    NexasInstruction init_code[init_code_count]
+    NexasInstruction init_code[init_code_count] // As far as i know functions don't have init_code so it's always empty you can skip those (size = 8 bytes * count).
     int32 code_count;
     NexasInstruction code[code_count]
     int32 stringTable_count;
@@ -46,8 +46,8 @@ struct NeXASFunction {
     NexasString local_numeric_variables_names[numeric_variable_count]
     int32 string_variable_count;
     NexasString local_string_variables_names[string_variable_count]
-    int32 optionalPadding;
-    byte pad[optionalPadding*68]
+    int32 bank_count;
+    NeXASBank banks[bank_count]; // As far as i know functions don't have banks so it's always empty you can skip those (size = 68 bytes * count).
 };
 
 // Struct for bin and binu8
