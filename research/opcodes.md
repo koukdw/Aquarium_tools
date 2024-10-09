@@ -6,6 +6,8 @@ the early 2010 and earlier version have different opcodes
 
 I am still not understanding opcode 0x49, but i have a few idea. It will be easier once i find a game where they actually use it.
 
+**Important: All instruction increment the program counter by 1 including jump and branch. This mean Jump index are always 1 less than their actual value.**
+
 | Opcode  (u32)| Mnemonic         | Operand  (u32)     | Description                |
 | :----------- | :--------------  | :--------------    | :------------------------- |
 | 0x0          | Val              | Value              | Set `R0` to value            |
