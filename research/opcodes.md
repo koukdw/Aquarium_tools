@@ -22,7 +22,7 @@ I am still not understanding opcode 0x49, but i have a few idea. It will be easi
 |              |                  |                    | If `FunctionID` doesn't have the sign bit set (the value is `positive or zero`) the call  instruction will call a `Native` function (implemented in the Engine) |
 |              |                  |                    | If `FunctionID` does have the sign bit set (the value is `negative`) the call instruction will call a `Script` function (implemented in the .bin files) |
 |              |                  |                    | If there's a return value it will be in `R0` |
-| 0x8          | Load             | Register Number    | Load the value (`number`) of a variable at index `registers[register_number]` into `registers[register_number]` |
+| 0x8          | Load             | Register Number    | Load the value (`int` or `index to the string`) of a variable at index `registers[register_number]` into `registers[register_number]` |
 |              |                  |                    | The register will contain an `index` to a `variable array` combined with an `optional flag` that determine if the scope is `global` |
 |              |                  |                    | `registers[register_number] = GET_INT_VARIABLE(registers[register_number])` |
 | 0x9          | Add              | Type               | Addition/Concat operation: |
