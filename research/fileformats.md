@@ -205,9 +205,9 @@ Note: Color channel are mapped from 0 to 16
 3  -  x
 4  -  y
 5  -  spm_name
-6  -  pattern_no
-7  -  param1
-8  -  param2
+6  -  ano            // animation number ???
+7  -  pattern        // default to -1
+8  -  pattern_page   // default to -1
 ```
 ### standpos.dat
 ```
