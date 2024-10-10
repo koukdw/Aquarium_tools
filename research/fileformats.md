@@ -202,8 +202,8 @@ Note: Color channel are mapped from 0 to 16
 0  -  char_index
 1  -  animation_name
 2  -  face_name
-3  -  x
-4  -  y
+3  -  face_pos_x
+4  -  face_pos_y
 5  -  spm_name
 6  -  ano            // animation number ???
 7  -  pattern        // default to -1
