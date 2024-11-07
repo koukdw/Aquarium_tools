@@ -60,6 +60,8 @@ def main():
 			unk_count = byte2int(src.read(4))
 			src.seek(unk_count * 4, 1)
 		# if it doesnt start with version
+		else:
+			src.seek(0)
 
 		init_code_count = byte2int(src.read(4))
 		src.seek(init_code_count * 8, 1)
