@@ -47,11 +47,29 @@ def main():
 		dstname = fn[:-6] + '.txt'
 		txt = open(dstname, 'r', encoding='utf-8')
 		filesize=os.path.getsize(fn)
-		src.seek(4)
-		entry_count = byte2int(src.read(4))
-		str_offset = (entry_count << 1) * 4 + 8
+		#src.seek(4)
+		#entry_count = byte2int(src.read(4))
+		#str_offset = (entry_count << 1) * 4 + 8
+		version = src.read(9)
+		# does it start with version (no length prefix)
+		if version[0] == 0x56 and version[1] == 0x45 and version[2] == 0x52: # VER
+			src.seek(9, 0)
+			unk_count = byte2int(src.read(4))
+			src.seek(unk_count * 4, 1)
+		# does it start with version (length prefixed)
+		elif version[0] == 9 and version[4] == 0x56 and version[5] == 0x45 and version[6] == 0x52:
+			src.seek(13, 0)
+			unk_count = byte2int(src.read(4))
+			src.seek(unk_count * 4, 1)
+		# if it doesnt start with version
+
+		init_code_count = byte2int(src.read(4))
+		src.seek(init_code_count * 8, 1)
+		code_count = byte2int(src.read(4))
+		src.seek(code_count * 8, 1)
+		str_offset = src.tell()
 		src.seek(0)
-		data=src.read(str_offset+9)
+		data=src.read(str_offset+9) #str_offset + str_count + empty string(size + null terminator)
 		dst = open(path.joinpath(fn[:-6]+'.binu8'),'wb')
 		dst.write(data)
 		for rows in txt:

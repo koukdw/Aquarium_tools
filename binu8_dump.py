@@ -48,11 +48,23 @@ def main():
 		src = open(fn, 'rb')
 		dstname = fn[:-6] + '.txt'
 		dst = open(dstname, 'w', encoding='utf-8')
+		version = src.read(9)
+		# does it start with version (no length prefix)
+		if version[0] == 0x56 and version[1] == 0x45 and version[2] == 0x52: # VER
+			src.seek(9, 0)
+			unk_count = byte2int(src.read(4))
+			src.seek(unk_count * 4, 1)
+		# does it start with version (length prefixed)
+		elif version[0] == 9 and version[4] == 0x56 and version[5] == 0x45 and version[6] == 0x52:
+			src.seek(13, 0)
+			unk_count = byte2int(src.read(4))
+			src.seek(unk_count * 4, 1)
+		# if it doesnt start with version
 
-		src.seek(4)
-		entry_count = byte2int(src.read(4))
-		str_offset = (entry_count << 1) * 4 + 8
-		src.seek(str_offset)
+		init_code_count = byte2int(src.read(4))
+		src.seek(init_code_count * 8, 1)
+		code_count = byte2int(src.read(4))
+		src.seek(code_count * 8, 1)
 		str_count = byte2int(src.read(4))
 
 		str_list = dumptxt(src, src.tell()+5, str_count-1)
