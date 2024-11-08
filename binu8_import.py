@@ -80,7 +80,7 @@ def main():
 			row = txt.readline().rstrip('\r\n').replace('\\n', '\n').replace('\\r', '\r')
 
 			str = bytes(row, 'utf-8')
-			dst.write(struct.pack('L', len(str)+1))
+			dst.write(struct.pack('<L', len(str)+1))
 			dst.write(struct.pack("%ds" % len(str), str))
 			dst.write(struct.pack('B',0))
 
