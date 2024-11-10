@@ -282,6 +282,8 @@ type 0 = "Update",\
 type 1 = "Data",\
 type 2 = "Resource",\
 type 3 = "Video"
+
+type could also be load_order where the lowest number get loaded last
 ```
 0  -  pack_name
 1  -  type
