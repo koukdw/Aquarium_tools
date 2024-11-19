@@ -143,7 +143,7 @@ I am still not understanding opcode 0x49, but i have a few idea. It will be easi
 |              |                  |                    | `int_var = (u32)GET_INT_VARIABLE(index);` |
 |              |                  |                    | `int_var >>= value` |
 | 0x3F         | To_String        | Register Number    | Convert int `registers[register_num]` to string and return the variable index to `registers[register_num]` |
-| 0x40         | Return           | Type               | Set return value type, `R0` is the register that contains the return value, if the return type is a `string` a temp string variable is created and the index is set into `R0`, if it's just an `int` then nothing happen the value already in `R0` is the value that gets returned. |
+| 0x40         | Return           | Type               | Return the value, `R0` is the register that contains the return value, if the return type is a `string` a temp string variable is created and the index is set into `R0`, if it's just an `int` then nothing happen the value already in `R0` is the value that gets returned. |
 |              |                  |                    | type 0 (`number`) |
 |              |                  |                    | type 1 (`string`) |
 | 0x41         | Jump             | Index              | Jump to code[index]        |
