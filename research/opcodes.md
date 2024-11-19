@@ -152,7 +152,7 @@ I am still not understanding opcode 0x49, but i have a few idea. It will be easi
 | 0x44         | To_Int           | Register Number    | Convert string register[register_num] to int and return the value to register[register_num] |
 | 0x47         | Param_min        | None               | Mark the last parameter added for bound check (MINIMUM) when the function is executed, the value in the `R0` will be the value to compare against |
 | 0x48         | Param_max        | None               | Mark the last parameter added for bound check (MAXIMUM) when the function is executed, the value in the `R0` will be the value to compare against |
-| 0x49         | Param_flag       | Value              | Add a special flag to the last parameter added when the function is executed, the value in the `R0` will be the value of the flag, the meaning of that flag depends on the funnction that gets executed, the most common one is to decide if the value should be added to the previous value or if it should replace the previous value ("+=" vs "=") |
+| 0x49         | Param_flag       | None               | Add a special flag to the last parameter added when the function is executed, the value in the `R0` will be the value of the flag, the meaning of that flag depends on the function that gets executed, the most common one is to decide if the value should be added to the previous value or if it should replace the previous value ("+=" vs "=") |
 
 
 To simplify the opcode table above, i'll list some pseudocode on the more complicated functions.
