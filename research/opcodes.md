@@ -40,7 +40,7 @@ I am still not understanding opcode 0x49, but i have a few idea. It will be easi
 |              |                  |                    | We need 2 parameters the index and the value |
 |              |                  |                    | There is 2 way to get them. |
 |              |                  |                    | If `Operand` is -1 then `R0` will contain the `index` of the destination variable and `R1` will contains the `value` or the `index to the string` |
-|              |                  |                    | If `Operand` is positive then the `operand` will be the `index` of the destination variable and `R0` will be the `value` or the `index to the string` |
+|              |                  |                    | Else the `operand` will be the `index` of the destination variable and `R0` will be the `value` or the `index to the string` |
 |              |                  |                    | If `Index` >= 0 we get the `number` variable and set it to `value` |
 |              |                  |                    | If `Index` is negative we get the `source `string using `GET_STRING(value)` and the `destination` string variable using `GET_STRING_VARIABLE(index ^ 0x80000000)` |
 |              |                  |                    | We can then set the `destination` variable to the value of the `source` string |
