@@ -92,54 +92,54 @@ I am still not understanding opcode 0x49, but i have a few idea. It will be easi
 |              |                  |                    | `string::append(left, right, 0, 0xFFFFFFFF);` |
 | 0x31         | Store.sub        | Index              | Subtract `value` to variable located at `index`  |
 |              |                  |                    | if operand == -1, `R0` contains the `index` and `R1` contains the `value` |
-|              |                  |                    | if operand >= 0, `operand` contains the `index` and `R0` contains the `value` |
+|              |                  |                    | Else `operand` contains the `index` and `R0` contains the `value` |
 |              |                  |                    | `int_var = GET_INT_VARIABLE(index);` |
 |              |                  |                    | `int_var += value` |
 | 0x32         | Store.mul        | Index              | Multiply `value` to variable located at `index`  |
 |              |                  |                    | if operand == -1, `R0` contains the `index` and `R1` contains the `value` |
-|              |                  |                    | if operand >= 0, `operand` contains the `index` and `R0` contains the `value` |
+|              |                  |                    | Else `operand` contains the `index` and `R0` contains the `value` |
 |              |                  |                    | `int_var = GET_INT_VARIABLE(index);` |
 |              |                  |                    | `int_var *= value` |
 | 0x33         | Store.div        | Index              | Divide `value` to variable at `index` |
 |              |                  |                    | if operand == -1, `R0` contains the `index` and `R1` contains the `value` |
-|              |                  |                    | if operand >= 0, `operand` contains the `index` and `R0` contains the `value` |
+|              |                  |                    | Else `operand` contains the `index` and `R0` contains the `value` |
 |              |                  |                    | `if(value == 0) return ERROR` |
 |              |                  |                    | `int_var = GET_INT_VARIABLE(index);` |
 |              |                  |                    | `int_var /= value` |
 | 0x34         | Store.mod        | Index              | Mod `value` to variable at `index` |
 |              |                  |                    | if operand == -1, `R0` contains the `index` and `R1` contains the `value` |
-|              |                  |                    | if operand >= 0, `operand` contains the `index` and `R0` contains the `value` |
+|              |                  |                    | Else `operand` contains the `index` and `R0` contains the `value` |
 |              |                  |                    | `if(value == 0) return ERROR` |
 |              |                  |                    | `int_var = GET_INT_VARIABLE(index);` |
 |              |                  |                    | `int_var %= value` |
 | 0x35         | Store.or         | Index              | Or `value` to variable at `index` |
 |              |                  |                    | if operand == -1, `R0` contains the `index` and `R1` contains the `value` |
-|              |                  |                    | if operand >= 0, `operand` contains the `index` and `R0` contains the `value` |
+|              |                  |                    | Else `operand` contains the `index` and `R0` contains the `value` |
 |              |                  |                    | `int_var = GET_INT_VARIABLE(index);` |
 |              |                  |                    | `int_var \|= value` |
 | 0x36         | Store.and        | Index              | And `value` to variable at `index` |
 |              |                  |                    | if operand == -1, `R0` contains the `index` and `R1` contains the `value` |
-|              |                  |                    | if operand >= 0, `operand` contains the `index` and `R0` contains the `value` |
+|              |                  |                    | Else `operand` contains the `index` and `R0` contains the `value` |
 |              |                  |                    | `int_var = GET_INT_VARIABLE(index);` |
 |              |                  |                    | `int_var &= value` |
 | 0x37         | Store.xor        | Index              | Xor `value` to variable at `index` |
 |              |                  |                    | if operand == -1, `R0` contains the `index` and `R1` contains the `value` |
-|              |                  |                    | if operand >= 0, `operand` contains the `index` and `R0` contains the `value` |
+|              |                  |                    | Else `operand` contains the `index` and `R0` contains the `value` |
 |              |                  |                    | `int_var = GET_INT_VARIABLE(index);` |
 |              |                  |                    | `int_var ^= value` |
 | 0x38         | Store.sar        | Index              | Shift arithmetic right `value` to variable at `index` |
 |              |                  |                    | if operand == -1, `R0` contains the `index` and `R1` contains the `value` |
-|              |                  |                    | if operand >= 0, `operand` contains the `index` and `R0` contains the `value` |
+|              |                  |                    | Else `operand` contains the `index` and `R0` contains the `value` |
 |              |                  |                    | `int_var = GET_INT_VARIABLE(index);` |
 |              |                  |                    | `int_var >>= value` |
 | 0x39         | Store.shl        | Index              | Shift logical left `value` to variable at `index` |
 |              |                  |                    | if operand == -1, `R0` contains the `index` and `R1` contains the `value` |
-|              |                  |                    | if operand >= 0, `operand` contains the `index` and `R0` contains the `value` |
+|              |                  |                    | Else `operand` contains the `index` and `R0` contains the `value` |
 |              |                  |                    | `int_var = GET_INT_VARIABLE(index);` |
 |              |                  |                    | `int_var <<= value` |
 | 0x3A         | Store.shr        | Index              | Shift logical right `value` to variable at `index` |
 |              |                  |                    | if operand == -1, `R0` contains the `index` and `R1` contains the `value` |
-|              |                  |                    | if operand >= 0, `operand` contains the `index` and `R0` contains the `value` |
+|              |                  |                    | Else `operand` contains the `index` and `R0` contains the `value` |
 |              |                  |                    | `int_var = (u32)GET_INT_VARIABLE(index);` |
 |              |                  |                    | `int_var >>= value` |
 | 0x3F         | To_String        | Register Number    | Convert int `registers[register_num]` to string and return the variable index to `registers[register_num]` |
