@@ -53,7 +53,7 @@ struct NeXASFunction {
 // Struct for bin and binu8
 struct NeXASBin {
     // Those 3 fields only used in later version (After the release of Aquarium PC)
-    char MAGIC[9]; // VER-1.00
+    NexasString MAGIC; // VER-1.00
     int32 unk_count; // always set to 1, maybe it's major version
     int32 unk[unk_count]; // always set to 0, maybe it's minor version
 
