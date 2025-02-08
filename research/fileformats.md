@@ -322,3 +322,71 @@ type could also be load_order where the lowest number get loaded last
 0  -  id
 1  -  name
 ```
+
+## SPM
+```
+struct SPMRect {
+        int left;
+        int top;
+        int right;
+        int bottom;   
+};
+struct SPMChipData {
+        int imageNo;
+        SPMRect dstRect;
+        int chipWidth;
+        int chipHeight;
+        SPMRect srcRect;
+        uint drawOption;
+        uint drawOptionValue;
+        int option;
+        //byte unk5; // add for SPM 2.02
+};
+struct SPMPageData {
+    	int numChipData;
+		int pageWidth;
+		int pageHeight;
+		SPMRect pageRect;
+		uint pageOption;
+		int rotateCenterX;
+		int rotateCenterY;
+		uint hitFlag;
+        local int i = 0;
+        for( i = 0; i < 32; i++ ) {
+			if((1 << (1 & 31)) & hitFlag != 0){
+                SPMRect hitRect[i];
+                int unk0;
+                int unk1;
+                int unk2;
+            }
+        }
+        //byte unk3;  // add for SPM 2.02
+        SPMChipData chipData[numChipData];
+        
+};
+struct SPMImageData {
+        char imageName[];  
+};
+struct SPMPatData {
+        int waitFrame;
+        int pageNo[patPageNum];
+};
+struct SPMAnimData {
+        char animName[];
+        int numPat;
+        int animRotateDirection;
+        int animReverseDirection;
+        local int num = numPat & 65535;
+        SPMPatData patData[num];
+};
+struct SPMData {
+        char spmVersion[];
+        int numPageData;
+        SPMPageData pageData[numPageData];
+        int numImageData;
+        SPMImageData imageData[numImageData];
+        int patPageNum;
+        int numAnimData;
+        SPMAnimData animData[numAnimData];
+};
+```
