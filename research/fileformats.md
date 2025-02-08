@@ -344,16 +344,16 @@ struct SPMChipData {
 };
 struct SPMPageData {
     	int numChipData;
-		int pageWidth;
-		int pageHeight;
-		SPMRect pageRect;
-		uint pageOption;
-		int rotateCenterX;
-		int rotateCenterY;
-		uint hitFlag;
+	int pageWidth;
+	int pageHeight;
+	SPMRect pageRect;
+	uint pageOption;
+	int rotateCenterX;
+	int rotateCenterY;
+	uint hitFlag;
         local int i = 0;
         for( i = 0; i < 32; i++ ) {
-			if((1 << (1 & 31)) & hitFlag != 0){
+	    if((1 << (1 & 31)) & hitFlag != 0){
                 SPMRect hitRect[i];
                 int unk0;
                 int unk1;
