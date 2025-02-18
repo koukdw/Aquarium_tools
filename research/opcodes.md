@@ -14,7 +14,7 @@ I am still not understanding opcode 0x49, but i have a few idea. It will be easi
 | 0x4          | Push             | Register Number    | Push value at `registers[register_number]` into the stack |
 | 0x5          | Param            | Type               | Add value at `R0` to the argument array |
 |              |                  |                    | Type 0 is a `number`, `R0` contains the `number` |
-|              |                  |                    | Type 1 is a `string`, `R0` contains an `index` into a stringArray then `GET_STRING(index)` |
+|              |                  |                    | Type 1 is a `string`, `R0` contains an `index` into a stringArray or a stringVariable array then `GET_STRING(index)` |
 |              |                  |                    | `Param_min` and `Param_max` instruction can be used after the `Param` instruction to mark the parameter to be bound checked when the call instruction is executed |
 | 0x6          | Pop              | Register Number    | Pop value at the top of the stack into `registers[register_number]` |
 | 0x7          | Call             | FunctionID & Arity | Call the function at `FunctionID` using the parameters from the arguments array |
