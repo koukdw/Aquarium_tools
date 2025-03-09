@@ -76,12 +76,12 @@ I am still not understanding opcode 0x49, but i have a few idea. It will be easi
 |              |                  |                    | If `Operand` is -1 then `R0` will contain the `index` of the variable |
 |              |                  |                    | If `Operand` is positive then the operand will be the `index` of the variable |
 | 0x2B         | Cmp_Zero         | None               | Compare zero operation: `R0 = R0 == 0` |
-| 0x2C         | Set_lineno       | Value              | Set the `line number` of the current `statement`, only used in `main_script` |
+| 0x2C         | Lineno           | Value              | Set the `line number` of the current `statement`, only used in `main_script` |
 |              |                  |                    | Note that when a `Script` function is inlined the same `line number` will repeat |
 | 0x2D         | Sar              | None               | Shift Arithmetic Right operation: `R0 = R1 >> R0` |
 | 0x2E         | Shl              | None               | Shift Logical Left operation: `R0 = R1 << R0` |
 | 0x2F         | Shr              | None               | Shift Logical Right operation: `R0 = (u32)R1 >> R0` |
-| 0x30         | Store.add        | Index              | Add/Append value to variable located at index |
+| 0x30         | Ld_add           | Index              | Add/Append value to variable located at index |
 |              |                  |                    | It works exactly like the store instruction, so please look at Store instruction for more details |
 |              |                  |                    | if index >= 0 it's an number operation |
 |              |                  |                    | `int_var = GET_INT_VARIABLE(index);` |
@@ -90,54 +90,54 @@ I am still not understanding opcode 0x49, but i have a few idea. It will be easi
 |              |                  |                    | `right = GET_STRING(value);` |
 |              |                  |                    | `left = GET_STRING_VARIABLE(index ^ 0x80000000);` |
 |              |                  |                    | `string::append(left, right, 0, 0xFFFFFFFF);` |
-| 0x31         | Store.sub        | Index              | Subtract `value` to variable located at `index`  |
+| 0x31         | Ld_sub           | Index              | Subtract `value` to variable located at `index`  |
 |              |                  |                    | if operand == -1, `R0` contains the `index` and `R1` contains the `value` |
 |              |                  |                    | Else `operand` contains the `index` and `R0` contains the `value` |
 |              |                  |                    | `int_var = GET_INT_VARIABLE(index);` |
 |              |                  |                    | `int_var += value` |
-| 0x32         | Store.mul        | Index              | Multiply `value` to variable located at `index`  |
+| 0x32         | Ld_mul           | Index              | Multiply `value` to variable located at `index`  |
 |              |                  |                    | if operand == -1, `R0` contains the `index` and `R1` contains the `value` |
 |              |                  |                    | Else `operand` contains the `index` and `R0` contains the `value` |
 |              |                  |                    | `int_var = GET_INT_VARIABLE(index);` |
 |              |                  |                    | `int_var *= value` |
-| 0x33         | Store.div        | Index              | Divide `value` to variable at `index` |
+| 0x33         | Ld_div           | Index              | Divide `value` to variable at `index` |
 |              |                  |                    | if operand == -1, `R0` contains the `index` and `R1` contains the `value` |
 |              |                  |                    | Else `operand` contains the `index` and `R0` contains the `value` |
 |              |                  |                    | `if(value == 0) return ERROR` |
 |              |                  |                    | `int_var = GET_INT_VARIABLE(index);` |
 |              |                  |                    | `int_var /= value` |
-| 0x34         | Store.mod        | Index              | Mod `value` to variable at `index` |
+| 0x34         | Ld_mod           | Index              | Mod `value` to variable at `index` |
 |              |                  |                    | if operand == -1, `R0` contains the `index` and `R1` contains the `value` |
 |              |                  |                    | Else `operand` contains the `index` and `R0` contains the `value` |
 |              |                  |                    | `if(value == 0) return ERROR` |
 |              |                  |                    | `int_var = GET_INT_VARIABLE(index);` |
 |              |                  |                    | `int_var %= value` |
-| 0x35         | Store.or         | Index              | Or `value` to variable at `index` |
+| 0x35         | Ld_or            | Index              | Or `value` to variable at `index` |
 |              |                  |                    | if operand == -1, `R0` contains the `index` and `R1` contains the `value` |
 |              |                  |                    | Else `operand` contains the `index` and `R0` contains the `value` |
 |              |                  |                    | `int_var = GET_INT_VARIABLE(index);` |
 |              |                  |                    | `int_var \|= value` |
-| 0x36         | Store.and        | Index              | And `value` to variable at `index` |
+| 0x36         | Ld_and           | Index              | And `value` to variable at `index` |
 |              |                  |                    | if operand == -1, `R0` contains the `index` and `R1` contains the `value` |
 |              |                  |                    | Else `operand` contains the `index` and `R0` contains the `value` |
 |              |                  |                    | `int_var = GET_INT_VARIABLE(index);` |
 |              |                  |                    | `int_var &= value` |
-| 0x37         | Store.xor        | Index              | Xor `value` to variable at `index` |
+| 0x37         | Ld_xor           | Index              | Xor `value` to variable at `index` |
 |              |                  |                    | if operand == -1, `R0` contains the `index` and `R1` contains the `value` |
 |              |                  |                    | Else `operand` contains the `index` and `R0` contains the `value` |
 |              |                  |                    | `int_var = GET_INT_VARIABLE(index);` |
 |              |                  |                    | `int_var ^= value` |
-| 0x38         | Store.sar        | Index              | Shift arithmetic right `value` to variable at `index` |
+| 0x38         | Ld_sar           | Index              | Shift arithmetic right `value` to variable at `index` |
 |              |                  |                    | if operand == -1, `R0` contains the `index` and `R1` contains the `value` |
 |              |                  |                    | Else `operand` contains the `index` and `R0` contains the `value` |
 |              |                  |                    | `int_var = GET_INT_VARIABLE(index);` |
 |              |                  |                    | `int_var >>= value` |
-| 0x39         | Store.shl        | Index              | Shift logical left `value` to variable at `index` |
+| 0x39         | Ld_shl           | Index              | Shift logical left `value` to variable at `index` |
 |              |                  |                    | if operand == -1, `R0` contains the `index` and `R1` contains the `value` |
 |              |                  |                    | Else `operand` contains the `index` and `R0` contains the `value` |
 |              |                  |                    | `int_var = GET_INT_VARIABLE(index);` |
 |              |                  |                    | `int_var <<= value` |
-| 0x3A         | Store.shr        | Index              | Shift logical right `value` to variable at `index` |
+| 0x3A         | Ld_shr           | Index              | Shift logical right `value` to variable at `index` |
 |              |                  |                    | if operand == -1, `R0` contains the `index` and `R1` contains the `value` |
 |              |                  |                    | Else `operand` contains the `index` and `R0` contains the `value` |
 |              |                  |                    | `int_var = (u32)GET_INT_VARIABLE(index);` |
@@ -146,9 +146,9 @@ I am still not understanding opcode 0x49, but i have a few idea. It will be easi
 | 0x40         | Return           | Type               | Return the value, `R0` is the register that contains the return value, if the return type is a `string` a temp string variable is created and the index is set into `R0`, if it's just an `int` then nothing happen the value already in `R0` is the value that gets returned. |
 |              |                  |                    | type 0 (`number`) |
 |              |                  |                    | type 1 (`string`) |
-| 0x41         | Jump             | Index              | Jump to code[index]        |
-| 0x42         | Branch.false     | Index              | Branch to code[index] if `R0` is `false` (0) |
-| 0x43         | Branch.true      | Index              | Branch to code[index] if `R0` is `true` (1) |
+| 0x41         | Jmp              | Index              | Jump to code[index]        |
+| 0x42         | Jmp_if_false     | Index              | Branch to code[index] if `R0` is `false` (0) |
+| 0x43         | Jmp_if_true      | Index              | Branch to code[index] if `R0` is `true` (1) |
 | 0x44         | To_Int           | Register Number    | Convert string register[register_num] to int and return the value to register[register_num] |
 | 0x47         | Param_min        | None               | Mark the last parameter added for bound check (MINIMUM) when the function is executed, the value in the `R0` will be the value to compare against |
 | 0x48         | Param_max        | None               | Mark the last parameter added for bound check (MAXIMUM) when the function is executed, the value in the `R0` will be the value to compare against |
