@@ -9,7 +9,7 @@
 
 ## String dumper/importer for binu8 and datu8 files
 
-### How to use
+### How to use for binu8
 > Dump the game romfs, then copy the Script folder and Config folder to the root directory
 > 
 > Create a ./Output/ folder in the root directory and create Script and Config folder inside it
@@ -20,11 +20,21 @@
 ```> python binu8_import.py```
 >Create a new binu8 files based on the modified txt files and put them in the ./Output/Script/ folder
 
-```> python datu8_dump.py```
-> Extract the strings from Config folder datu8 files into .txt files
+### How to use for dat/datu8
+> Use the tool in the tools folder, make sure to be inside the folder before you run the command.\
+>
+> Preset can be:
+> * `dat` for pc games that use shift-jis
+> * `datu8` for pc games and switch games that have the datu8 extension
+> * `dat_new`for pc games that use utf-8
+>
+>\
+> To convert dat/datu8 to csv
 
-```> python datu8_import.py```
->Create a new datu8 files based on the modified txt files and put them in the ./Output/Config/ folder
+```> python main.py  --to-csv --preset datu8 <file or folder_path ```
+> To convert csv to dat/datu8
+>
+```> python main.py  --to-binary --preset datu8 <file or folder_path>```
 
 
 ### How to import the modified files into the game
