@@ -277,16 +277,11 @@ Note: It's a list of flag value corresponding to various command it's pretty eas
 ...  -  list_of_flags
 ```
 ### packlist.dat
-Note: Just guessing\
-type 0 = "Update",\
-type 1 = "Data",\
-type 2 = "Resource",\
-type 3 = "Video"
-
-type could also be load_order where the lowest number get loaded last
+required flag -> 0 : REQUIRED_NONE, 1: REQUIRED_CONFIGMODE, 2: REQUIRED_PACK, 3: REQUIRED_DIRECTORY
+just set the required flag to 0 (REQUIRED_NONE) if you want to add a custom .pac file
 ```
 0  -  pack_name
-1  -  type
+1  -  required flag
 ```
 ### systemvoice.dat
 ```
