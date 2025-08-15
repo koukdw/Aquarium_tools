@@ -333,12 +333,12 @@ struct SPMChipData {
         int chipHeight;
         SPMRect srcRect;
         uint drawOption;
+        //byte unk5; // add for SPM 2.02
         uint drawOptionValue;
         int option;
-        //byte unk5; // add for SPM 2.02
 };
 struct SPMPageData {
-    	int numChipData;
+	int numChipData;
 	int pageWidth;
 	int pageHeight;
 	SPMRect pageRect;
@@ -346,17 +346,17 @@ struct SPMPageData {
 	int rotateCenterX;
 	int rotateCenterY;
 	uint hitFlag;
-        local int i = 0;
-        for( i = 0; i < 32; i++ ) {
-	    if((1 << (1 & 31)) & hitFlag != 0){
-                SPMRect hitRect[i];
-                int unk0;
-                int unk1;
-                int unk2;
-            }
-        }
-        //byte unk3;  // add for SPM 2.02
-        SPMChipData chipData[numChipData];
+	//byte unk3;  // add for SPM 2.02
+	local int i = 0;
+	for( i = 0; i < 32; i++ ) {
+	if((1 << (1 & 31)) & hitFlag != 0){
+			SPMRect hitRect[i];
+			int unk0;
+			int unk1;
+			int unk2;
+		}
+	}
+	SPMChipData chipData[numChipData];
         
 };
 struct SPMImageData {
@@ -385,3 +385,4 @@ struct SPMData {
         SPMAnimData animData[numAnimData];
 };
 ```
+
